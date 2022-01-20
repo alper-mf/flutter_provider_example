@@ -27,22 +27,17 @@ class LoginView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Flexible(
-                  flex: 2,
-                  child: TextForm(
-                    userNameController: state.userName,
-                    passwordController: state.password,
-                  ),
+                TextForm(
+                  userNameController: state.userName,
+                  passwordController: state.password,
                 ),
-                Flexible(
-                  flex: 3,
-                  child: CustomElevatedButton(
-                    text: TextConstant.memberLogin,
-                    isColored: true,
-                    onTap: () {
-                      state.loginCheck(context);
-                    },
-                  ),
+                SizedBox(height: Sizes.kPaddingH(context)),
+                CustomElevatedButton(
+                  text: TextConstant.memberLogin,
+                  isColored: true,
+                  onTap: () {
+                    state.loginCheck(context);
+                  },
                 ),
               ],
             ),
