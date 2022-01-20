@@ -24,15 +24,15 @@ class ListConstant {
             "Duyuru Metni satır:1 \nSatır2 \nSatır3 \nSatır4 \nSatır5 \nSatır6"),
   ];
 
-  static final List<ItemModel> initFacilitiesList = [
+  static List<ItemModel> initFacilitiesList = [
     ItemModel(id: 1, name: 'Mavi Tesis', favorite: false),
     ItemModel(id: 2, name: 'Turuncu Tesis', favorite: false),
     ItemModel(id: 3, name: 'Siyah Tesis', favorite: false),
     ItemModel(id: 4, name: 'Sarı Tesis', favorite: false),
     ItemModel(id: 5, name: 'Yeşil Tesis', favorite: false),
     ItemModel(id: 6, name: 'Beyaz Tesis', favorite: false),
-    ItemModel(id: 7, name: 'Pembe Tesis', favorite: true),
-    ItemModel(id: 8, name: 'Mor Tesis', favorite: true),
+    ItemModel(id: 7, name: 'Pembe Tesis', favorite: false),
+    ItemModel(id: 8, name: 'Mor Tesis', favorite: false),
     ItemModel(id: 9, name: 'Gri Tesis', favorite: false),
     ItemModel(id: 10, name: 'Turkuaz Tesis', favorite: false),
   ];

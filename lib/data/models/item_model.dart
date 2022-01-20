@@ -15,7 +15,7 @@ class ItemModel {
     return ItemModel(
       id: jsonData['id'],
       name: jsonData['name'],
-      favorite: false,
+      favorite: jsonData['favorite'],
     );
   }
 
