@@ -1,0 +1,44 @@
+name: dusyeri_app
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.1 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  #UI Packages
+  cupertino_icons: ^1.0.2
+  adaptive_dialog: ^1.3.0
+
+  #State Management Packages
+  provider: ^5.0.0
+
+  #Storage Packages
+  shared_preferences: ^2.0.12
+
+  #Core Utility
+  change_app_package_name: ^1.0.0
+  flutter_dotenv: ^5.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - .env
+
+  
