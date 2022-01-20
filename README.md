@@ -2,7 +2,7 @@
 
 
 
-https://user-images.githubusercontent.com/8598467/149181853-4ba3c621-87a1-493c-b138-c1a849ff1937.mp4
+https://github.com/alper-mf/dusyeri_provider_task/blob/7d1fee5dfde082b6c5d63523e197cf7c5981c433/app_preview/app_preview_video.mp4
 
 
 
