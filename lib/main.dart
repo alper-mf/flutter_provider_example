@@ -52,15 +52,6 @@ class MyApp extends StatelessWidget {
                 )),
         ChangeNotifierProvider<WelcomeModel>(create: (_) => WelcomeModel()),
 
-        //Add UserViewModel to FacilitiesViewModel
-        ChangeNotifierProxyProvider<UserViewModel, FacilitiesViewModel>(
-          create: (BuildContext context) => FacilitiesViewModel(
-              Provider.of<UserViewModel>(context, listen: false)),
-          update: (BuildContext context, UserViewModel user,
-                  FacilitiesViewModel? facilities) =>
-              FacilitiesViewModel(user),
-        ),
-
         //Add UserViewModel to StarterViewModel
         ChangeNotifierProxyProvider<UserViewModel, StarterViewModel>(
           create: (BuildContext context) => StarterViewModel(
@@ -68,6 +59,15 @@ class MyApp extends StatelessWidget {
           update: (BuildContext context, UserViewModel user,
                   StarterViewModel? starter) =>
               StarterViewModel(user),
+        ),
+
+        //Add UserViewModel to FacilitiesViewModel
+        ChangeNotifierProxyProvider<UserViewModel, FacilitiesViewModel>(
+          create: (BuildContext context) => FacilitiesViewModel(
+              Provider.of<UserViewModel>(context, listen: false)),
+          update: (BuildContext context, UserViewModel user,
+                  FacilitiesViewModel? facilities) =>
+              FacilitiesViewModel(user),
         ),
 
         //Add UserViewModel to AttentionViewModel
@@ -94,7 +94,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
         ),
-        home: const FacilitiesPage(),
+        home: const StarterPage(),
         routes: <String, WidgetBuilder>{
           RouteConstant.starterScreen: (BuildContext context) =>
               const StarterPage(),

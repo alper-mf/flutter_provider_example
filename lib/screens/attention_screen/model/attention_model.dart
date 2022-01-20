@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dusyeri_app/common/constant/list_constant.dart';
 import 'package:dusyeri_app/common/constant/text_constat.dart';
 import 'package:dusyeri_app/data/models/attention_model.dart';
@@ -12,6 +10,7 @@ class AttentionViewModel with ChangeNotifier {
   AttentionViewModel(this.userViewModel) {
     //Create list method for empty db list
     createList();
+    //cleanList();
   }
 
   List<AttentionModel> _tempList = [];
@@ -30,6 +29,12 @@ class AttentionViewModel with ChangeNotifier {
     });
   }
 
+  removeAttention(int index, AttentionModel item) async {
+    _tempList.removeAt(index);
+    updateList();
+    notifyListeners();
+  }
+
   //Fetch List From Locale Storage
   Future<List<AttentionModel>> fetchList() async {
     var itemString = prefs.getString(TextConstant.attentionKey);
@@ -44,16 +49,10 @@ class AttentionViewModel with ChangeNotifier {
     }
   }
 
-  removeAttention(int index, AttentionModel item) async {
-    _tempList.removeAt(index);
-    updateList();
-    notifyListeners();
-  }
-
   //Update List on local storage
   updateList() async {
     cleanList();
-    Future.delayed(const Duration(seconds: 1), () async {
+    Future.delayed(const Duration(milliseconds: 100), () async {
       final String encodedData = AttentionModel.encode(_tempList);
       await prefs.setString(TextConstant.attentionKey, encodedData);
     }).then((value) {

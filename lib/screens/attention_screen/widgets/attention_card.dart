@@ -5,11 +5,11 @@ import 'package:dusyeri_app/common/constant/text_style.dart';
 import 'package:flutter/material.dart';
 
 class AttentionCard extends StatelessWidget {
-  final String title;
+  String? title;
   final String subTitle;
   final bool isQuest;
   final GestureTapCallback? onTap;
-  const AttentionCard({
+  AttentionCard({
     Key? key,
     required this.title,
     required this.subTitle,
@@ -35,7 +35,7 @@ class AttentionCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                title,
+                title!,
                 style: ITextStyle.h2(ColorConstant.mainColor, true),
               ),
               Visibility(

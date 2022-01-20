@@ -13,7 +13,6 @@ class FacilitiesViewModel with ChangeNotifier {
   FacilitiesViewModel(this.userViewModel) {
     //Init createList
     createList();
-    //cleanList();
   }
 
   List<ItemModel> _tempList = [];
@@ -23,7 +22,6 @@ class FacilitiesViewModel with ChangeNotifier {
   createList() async {
     fetchList().then((value) async {
       if (value.isEmpty) {
-        log('Liste Boş, Liste Initialize Ediliyor...');
         final String encodedData =
             ItemModel.encode(ListConstant.initFacilitiesList);
         await prefs.setString(TextConstant.facilitiesKey, encodedData);
@@ -36,21 +34,8 @@ class FacilitiesViewModel with ChangeNotifier {
   addFavorite(int index, ItemModel item) async {
     _tempList[_tempList.indexWhere((element) => element.id == item.id)] =
         ItemModel(id: item.id, name: item.name, favorite: !item.favorite);
-    updateSHPList(_tempList).then((value) {
+    updateList().then((value) {
       fetchList();
-    });
-
-    notifyListeners();
-  }
-
-  //Update SHP List
-  Future updateSHPList(List<ItemModel> list) async {
-    cleanList().then((value) async {
-      log('List update edildi');
-      final String encodedData = ItemModel.encode(list);
-      await prefs.setString(TextConstant.facilitiesKey, encodedData);
-      var data = prefs.getString(TextConstant.facilitiesKey);
-      print("data" + data.toString());
     });
   }
 
@@ -67,8 +52,24 @@ class FacilitiesViewModel with ChangeNotifier {
     }
   }
 
+  //Update List on local storage
+  updateList() async {
+    cleanList();
+    Future.delayed(const Duration(milliseconds: 100), () async {
+      final String encodedData = ItemModel.encode(_tempList);
+      await prefs.setString(TextConstant.attentionKey, encodedData);
+      var data = await prefs.setString(TextConstant.attentionKey, encodedData);
+      log(data.toString());
+    }).then((value) {
+      fetchList();
+      notifyListeners();
+    });
+  }
+
   //Clean Prefs
   Future cleanList() async {
+    // await prefs.remove(TextConstant.attentionKey);
+
     await prefs.clear();
   }
 }
