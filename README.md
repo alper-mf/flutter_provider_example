@@ -7,7 +7,7 @@ https://user-images.githubusercontent.com/8598467/149181853-4ba3c621-87a1-493c-b
 
 
 # Task Ekranlar
-![screens](https://user-images.githubusercontent.com/8598467/149182215-c491570d-5c55-493e-a0d5-60605cd40cdf.jpg)
+![screens](https://raw.githubusercontent.com/alper-mf/dusyeri_provider_task/main/app_preview/app_preview.jpg)
 
 
 # Uygulama Hakkında
