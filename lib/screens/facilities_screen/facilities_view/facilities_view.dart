@@ -22,46 +22,48 @@ class FacilitiesView extends StatelessWidget {
               state: state,
               isQuest: state.userViewModel!.isQuest,
             ),
-            body: SafeArea(
+            body: SingleChildScrollView(
+              child: SafeArea(
                 child: Container(
-              padding: EdgeInsets.all(Sizes.allPadding),
-              height: Sizes.kHeight(context),
-              width: Sizes.kWidth(context),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Visibility(
-                    visible: state.userViewModel!.isQuest ? false : true,
-                    child: ListTitle(
-                      title: TextConstant.myFavoriteFacilities,
-                    ),
+                  padding: EdgeInsets.all(Sizes.allPadding),
+                  height: Sizes.kHeight(context),
+                  width: Sizes.kWidth(context),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Visibility(
+                        visible: state.userViewModel!.isQuest ? false : true,
+                        child: ListTitle(
+                          title: TextConstant.myFavoriteFacilities,
+                        ),
+                      ),
+                      Visibility(
+                          visible: state.userViewModel!.isQuest ? false : true,
+                          child: Flexible(flex: 1, child: favoriteList(state))),
+                      ListTitle(
+                        title: TextConstant.allFacilities,
+                      ),
+                      Expanded(
+                          flex: 2,
+                          child: facilitiesList(
+                              context, state, state.userViewModel!.isQuest))
+                    ],
                   ),
-                  Visibility(
-                      visible: state.userViewModel!.isQuest ? false : true,
-                      child: Flexible(flex: 1, child: favoriteList(state))),
-                  ListTitle(
-                    title: TextConstant.allFacilities,
-                  ),
-                  Flexible(
-                      flex: 1,
-                      child: facilitiesList(
-                          context, state, state.userViewModel!.isQuest))
-                ],
+                ),
               ),
-            ))));
+            )));
   }
 
-  SizedBox facilitiesList(
+  facilitiesList(
       BuildContext context, FacilitiesViewModel state, bool isQuest) {
     return SizedBox(
-      height: Sizes.kHeight(context),
       width: Sizes.kWidth(context),
+      height: Sizes.kHeight(context),
       child: ListView.separated(
           separatorBuilder: (context, index) => SizedBox(
                 height: Sizes.kPaddingH(context) / 2,
               ),
-          shrinkWrap: true,
           itemCount: state.tempList.length,
           itemBuilder: (BuildContext context, index) {
             var item = state.tempList[index];
