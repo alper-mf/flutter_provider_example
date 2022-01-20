@@ -1,16 +1,40 @@
-# dusyeri_app
+# Düşyeri Provider Task
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+https://user-images.githubusercontent.com/8598467/149181853-4ba3c621-87a1-493c-b138-c1a849ff1937.mp4
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Task Ekranlar
+![screens](https://user-images.githubusercontent.com/8598467/149182215-c491570d-5c55-493e-a0d5-60605cd40cdf.jpg)
+
+
+# Uygulama Hakkında
+Düşyeri için hazirlanmis tasktir. Uygulama üzerinden basit bir şekilde login olabilir, tesisleri görüntüleyebilir ve favorilere ekleyebilir. Duyuruları görüntüleyebilir ve kaldırabilirsiniz.
+
+# Kullanılan Paketler:
+
+| Paketler        |            |
+| ------------- |:-------------:
+| flutter_dotenv | API, TOKEN, local storage key gibi gizli tutulması gerekenler veriler için kullanılmıştır. |
+| adaptive_dialog | Cihazın işletim sistemine göre Dialog ekranlarını göstermek için kullanılmıştır | 
+| Shared Prefences      | Local storage için kullanılmıştır. |
+| Provider | State Management için kullanılmıştır. |
+
+
+
+# Uygulamada Kullanılan Başlıca Özellikler
+
+|     ✅    |            |
+| ------------- |:-------------:
+| Constant Variables | Uygulamanın ekranlarında ayrı ayrı gezmeden, herhangi bir String i ya da rengi tek bir class içerisinden düzenleyebilirsiniz. Bu sayede uygulamayı birden fazla dile çevirirken ya da karanlık mod gibi uyarlamalar da vakit kazandırır. |
+| models | Uygulama içerisinde kullanılan reponse dataların kolay yönetimi için eklenmiştir. | 
+| Adaptive Widgets     | IOS ya da Android arasında geçiş yaparken tasarımsal farklar ortadan kaldırılır.|
+| ChangeNotifierProxyProvider | UserViewModel i diğer modellerden üzerinden çağırmak kullanılmıştır.|
+
+
+
+
+
+
