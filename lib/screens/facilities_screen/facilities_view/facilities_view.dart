@@ -70,6 +70,7 @@ class FacilitiesView extends StatelessWidget {
               isQuest: isQuest,
               onTap: () {
                 state.addFavorite(index, item);
+                state.addToFavorite();
               },
             );
           }),
@@ -79,15 +80,15 @@ class FacilitiesView extends StatelessWidget {
   GridView favoriteList(FacilitiesViewModel state) {
     return GridView.builder(
         shrinkWrap: true,
-        itemCount: state.tempList.length,
+        itemCount: state.favoriteList.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           mainAxisSpacing: 5.0,
           crossAxisSpacing: 5.0,
         ),
         itemBuilder: (BuildContext context, index) {
-          var item = state.tempList[index];
-          if (state.tempList.isEmpty) {
+          var item = state.favoriteList[index];
+          if (state.favoriteList.isEmpty) {
             state.fetchList();
             return const Text('Liste boş');
           }

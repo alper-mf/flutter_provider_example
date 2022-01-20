@@ -13,14 +13,19 @@ class FacilitiesViewModel with ChangeNotifier {
   FacilitiesViewModel(this.userViewModel) {
     //Init createList
     createList();
+    //cleanList();
   }
 
   List<ItemModel> _tempList = [];
   List<ItemModel> get tempList => _tempList;
 
+  List<ItemModel> _favoriteList = [];
+  List<ItemModel> get favoriteList => _favoriteList;
+
   //If _initList not added the locale storage, create list method
   createList() async {
     fetchList().then((value) async {
+      addToFavorite();
       if (value.isEmpty) {
         final String encodedData =
             ItemModel.encode(ListConstant.initFacilitiesList);
@@ -29,6 +34,13 @@ class FacilitiesViewModel with ChangeNotifier {
         notifyListeners();
       }
     });
+  }
+
+  addToFavorite() {
+    var temp = _tempList.where((element) => element.favorite == true).toList();
+    _favoriteList = temp;
+    print(temp.length);
+    notifyListeners();
   }
 
   addFavorite(int index, ItemModel item) async {
