@@ -57,8 +57,8 @@ class FacilitiesViewModel with ChangeNotifier {
     cleanList();
     Future.delayed(const Duration(milliseconds: 100), () async {
       final String encodedData = ItemModel.encode(_tempList);
-      await prefs.setString(TextConstant.attentionKey, encodedData);
-      var data = await prefs.setString(TextConstant.attentionKey, encodedData);
+      await prefs.setString(TextConstant.facilitiesKey, encodedData);
+      var data = await prefs.setString(TextConstant.facilitiesKey, encodedData);
       log(data.toString());
     }).then((value) {
       fetchList();

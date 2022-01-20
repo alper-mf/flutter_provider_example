@@ -35,7 +35,7 @@ class AttentionCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                title!,
+                title.toString(),
                 style: ITextStyle.h2(ColorConstant.mainColor, true),
               ),
               Visibility(

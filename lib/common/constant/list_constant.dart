@@ -2,7 +2,7 @@ import 'package:dusyeri_app/data/models/attention_model.dart';
 import 'package:dusyeri_app/data/models/item_model.dart';
 
 class ListConstant {
-  static final List<AttentionModel> initAttentionList = [
+  static List<AttentionModel> initAttentionList = [
     AttentionModel(
         id: 1,
         title: 'Duyuru-5',
