@@ -13,6 +13,7 @@ class FacilitiesViewModel with ChangeNotifier {
   FacilitiesViewModel(this.userViewModel) {
     //Init createList
     createList();
+    //cleanList();
   }
 
   List<ItemModel> _tempList = [];
@@ -32,6 +33,27 @@ class FacilitiesViewModel with ChangeNotifier {
     });
   }
 
+  addFavorite(int index, ItemModel item) async {
+    _tempList[_tempList.indexWhere((element) => element.id == item.id)] =
+        ItemModel(id: item.id, name: item.name, favorite: !item.favorite);
+    updateSHPList(_tempList).then((value) {
+      fetchList();
+    });
+
+    notifyListeners();
+  }
+
+  //Update SHP List
+  Future updateSHPList(List<ItemModel> list) async {
+    cleanList().then((value) async {
+      log('List update edildi');
+      final String encodedData = ItemModel.encode(list);
+      await prefs.setString(TextConstant.facilitiesKey, encodedData);
+      var data = prefs.getString(TextConstant.facilitiesKey);
+      print("data" + data.toString());
+    });
+  }
+
   //Fetch List From Locale Storage
   Future<List<ItemModel>> fetchList() async {
     var itemString = prefs.getString(TextConstant.facilitiesKey);
@@ -45,27 +67,8 @@ class FacilitiesViewModel with ChangeNotifier {
     }
   }
 
-  addFavorite(int index, ItemModel item) async {
-    _tempList.removeAt(index);
-    _tempList
-        .add(ItemModel(id: item.id, name: item.name, favorite: !item.favorite));
-    updateList();
-    notifyListeners();
-  }
-
-  updateList() async {
-    cleanList();
-    Future.delayed(const Duration(seconds: 1), () async {
-      final String encodedData = ItemModel.encode(_tempList);
-      await prefs.setString(TextConstant.facilitiesKey, encodedData);
-    }).then((value) {
-      fetchList();
-      notifyListeners();
-    });
-  }
-
   //Clean Prefs
-  cleanList() async {
+  Future cleanList() async {
     await prefs.clear();
   }
 }

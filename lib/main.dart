@@ -94,7 +94,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
         ),
-        home: const StarterPage(),
+        home: const FacilitiesPage(),
         routes: <String, WidgetBuilder>{
           RouteConstant.starterScreen: (BuildContext context) =>
               const StarterPage(),

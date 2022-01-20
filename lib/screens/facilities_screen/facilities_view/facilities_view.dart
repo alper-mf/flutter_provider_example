@@ -39,12 +39,12 @@ class FacilitiesView extends StatelessWidget {
                   ),
                   Visibility(
                       visible: state.userViewModel!.isQuest ? false : true,
-                      child: Flexible(flex: 2, child: FavoriteList(state))),
+                      child: Flexible(flex: 1, child: favoriteList(state))),
                   ListTitle(
                     title: TextConstant.allFacilities,
                   ),
                   Flexible(
-                      flex: 3,
+                      flex: 1,
                       child: facilitiesList(
                           context, state, state.userViewModel!.isQuest))
                 ],
@@ -76,7 +76,7 @@ class FacilitiesView extends StatelessWidget {
     );
   }
 
-  GridView FavoriteList(FacilitiesViewModel state) {
+  GridView favoriteList(FacilitiesViewModel state) {
     return GridView.builder(
         shrinkWrap: true,
         itemCount: state.tempList.length,
