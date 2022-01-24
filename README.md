@@ -2,7 +2,6 @@
 
 
 # Task Ekranlar
-![screens](https://raw.githubusercontent.com/alper-mf/dusyeri_provider_task/main/app_preview/app_preview.jpg)
 
 
 # Uygulama Hakkında
