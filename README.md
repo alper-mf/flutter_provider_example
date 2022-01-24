@@ -1,11 +1,6 @@
 # Düşyeri Provider Task
 
 
-
-https://github.com/alper-mf/dusyeri_provider_task/blob/7d1fee5dfde082b6c5d63523e197cf7c5981c433/app_preview/app_preview_video.mp4
-
-
-
 # Task Ekranlar
 ![screens](https://raw.githubusercontent.com/alper-mf/dusyeri_provider_task/main/app_preview/app_preview.jpg)
 
