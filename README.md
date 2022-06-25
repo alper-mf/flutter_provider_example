@@ -5,7 +5,7 @@
 
 
 # Uygulama Hakkında
-Düşyeri için hazirlanmis tasktir. Uygulama üzerinden basit bir şekilde login olabilir, tesisleri görüntüleyebilir ve favorilere ekleyebilir. Duyuruları görüntüleyebilir ve kaldırabilirsiniz.
+Uygulama üzerinden basit bir şekilde login olabilir, tesisleri görüntüleyebilir ve favorilere ekleyebilir. Duyuruları görüntüleyebilir ve kaldırabilirsiniz.
 
 # Kullanılan Paketler:
 
